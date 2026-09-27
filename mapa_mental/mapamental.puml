@@ -1,0 +1,124 @@
+@startmindmap
+* **Fundamentos de Modelos de IA**
+** 1. Fundamentos
+*** Inteligencia Artificial (IA)
+**** **¿Qué es?:** Sistemas que emulan funciones cognitivas.
+**** **¿Para qué sirve?:** Automatizar tareas complejas.
+**** **Ejemplo:** Agente virtual.
+**** **Uso en lab:** Marco teórico general.
+*** Machine Learning (ML)
+**** **¿Qué es?:** Sistemas que aprenden patrones a partir de datos.
+**** **¿Para qué sirve?:** Predicciones y análisis de tendencias.
+**** **Ejemplo:** Regresión lineal.
+**** **Uso en lab:** Base matemática para series temporales.
+*** Deep Learning
+**** **¿Qué es?:** Redes neuronales con múltiples capas.
+**** **¿Para qué sirve?:** Procesar datos de alta dimensionalidad.
+**** **Ejemplo:** Reconocimiento facial.
+**** **Uso en lab:** Tecnología subyacente de los modelos generativos.
+*** Redes Neuronales
+**** **¿Qué es?:** Nodos interconectados inspirados en el cerebro.
+**** **¿Para qué sirve?:** Aproximar funciones complejas.
+**** **Ejemplo:** Red Neuronal Convolucional (CNN).
+**** **Uso en lab:** Fundamento de la arquitectura interna.
+*** Transformers
+**** **¿Qué es?:** Arquitectura basada en "mecanismos de atención".
+**** **¿Para qué sirve?:** Capturar contexto a largo plazo en secuencias.
+**** **Ejemplo:** Arquitectura GPT.
+**** **Uso en lab:** Arquitectura base de los modelos evaluados.
+*** Modelos fundacionales
+**** **¿Qué es?:** Modelos masivos adaptables a múltiples tareas.
+**** **¿Para qué sirve?:** Base para soluciones específicas.
+**** **Ejemplo:** Llama 3 o GPT-4.
+**** **Uso en lab:** Motores principales a consultar.
+** 2. Tipos de modelos
+*** LLM (Large Language Model)
+**** **¿Qué es?:** Especializado en lenguaje natural.
+**** **¿Para qué sirve?:** Redacción y razonamiento lógico.
+**** **Ejemplo:** Mixtral 8x7B.
+**** **Uso en lab:** Modelo local generalista.
+*** SLM (Small Language Model)
+**** **¿Qué es?:** Versión reducida de un LLM.
+**** **¿Para qué sirve?:** Tareas en hardware limitado.
+**** **Ejemplo:** Phi-3 Mini.
+**** **Uso en lab:** Alternativa para equipos con poca RAM.
+*** Modelos de código
+**** **¿Qué es?:** Entrenados sobre repositorios de código.
+**** **¿Para qué sirve?:** Generar y explicar lógica de software.
+**** **Ejemplo:** Qwen-Coder.
+**** **Uso en lab:** Herramienta central para Vibe Coding.
+*** VLM y Multimodales
+**** **¿Qué es?:** Procesan texto, imagen o video simultáneamente.
+**** **¿Para qué sirve?:** Analizar diagramas o interfaces visuales.
+**** **Ejemplo:** LLaVA.
+**** **Uso en lab:** Investigación en la cartografía.
+*** Embeddings
+**** **¿Qué es?:** Representaciones vectoriales de datos.
+**** **¿Para qué sirve?:** Búsqueda semántica.
+**** **Ejemplo:** text-embedding-3-small.
+**** **Uso en lab:** Investigación cartográfica.
+*** STT y TTS
+**** **¿Qué es?:** Transcripción de voz y síntesis de texto.
+**** **¿Para qué sirve?:** Interfaces audibles.
+**** **Ejemplo:** Whisper (STT).
+**** **Uso en lab:** Categoría a investigar.
+left side
+** 3. Funcionamiento
+*** Entrenamiento vs. Inferencia
+**** **¿Qué es?:** Crear el modelo vs. usar el modelo.
+**** **¿Para qué sirve?:** Diferenciar fases del ciclo de IA.
+**** **Ejemplo:** OpenAI entrena, el usuario hace inferencia.
+**** **Uso en lab:** Todas las ejecuciones serán inferencia.
+*** Parámetros y Cuantización
+**** **¿Qué es?:** Variables del modelo y su compresión (ej. 4-bit).
+**** **¿Para qué sirve?:** Reducir consumo de memoria.
+**** **Ejemplo:** Modelo GGUF Q4.
+**** **Uso en lab:** Evitar desbordamientos de RAM/VRAM.
+*** Tokens y Ventana de contexto
+**** **¿Qué es?:** Fragmentos de texto y límite de memoria a corto plazo.
+**** **¿Para qué sirve?:** Definir límite de entrada de datos.
+**** **Ejemplo:** Ventana de 8k tokens.
+**** **Uso en lab:** Limitará el tamaño de los scripts enviados.
+*** Temperatura
+**** **¿Qué es?:** Hiperparámetro de aleatoriedad.
+**** **¿Para qué sirve?:** Controlar exactitud vs. creatividad.
+**** **Ejemplo:** Temperatura 0.1 para código.
+**** **Uso en lab:** Ajustar para obtener código ejecutable.
+** 4. Formas de uso
+*** Modelo local vs. Cloud
+**** **¿Qué es?:** Hardware propio vs. servidores externos.
+**** **¿Para qué sirve?:** Balancear privacidad y potencia.
+**** **Ejemplo:** Llama 3 local vs. API de OpenAI.
+**** **Uso en lab:** Comparar ambos enfoques en Vibe Coding.
+*** API
+**** **¿Qué es?:** Interfaz de comunicación programática.
+**** **¿Para qué sirve?:** Integrar IA en backends.
+**** **Ejemplo:** Petición POST a un endpoint.
+**** **Uso en lab:** Consumo de modelos locales y series temporales.
+*** Interfaz de chat
+**** **¿Qué es?:** Aplicación conversacional que envuelve un modelo.
+**** **¿Para qué sirve?:** Probar prompts sin programar.
+**** **Ejemplo:** Chat de LM Studio, claude.ai, Gemini.
+**** **Uso en lab:** Primeras pruebas y Vibe Coding cloud.
+*** Open-weight vs. Propietario
+**** **¿Qué es?:** Pesos públicos vs. caja negra controlada.
+**** **¿Para qué sirve?:** Despliegues locales vs. servicios gestionados.
+**** **Ejemplo:** Mistral vs. Claude 3.
+**** **Uso en lab:** Instalar modelos open-weight en Ollama.
+** 5. Infraestructura
+*** Hardware (CPU, GPU, RAM, VRAM)
+**** **¿Qué es?:** Componentes de procesamiento y memoria.
+**** **¿Para qué sirve?:** Dictan velocidad y tamaño máximo del modelo.
+**** **Ejemplo:** GPU con 8GB de VRAM.
+**** **Uso en lab:** Registrar consumo de recursos en las pruebas.
+*** Ollama y LM Studio
+**** **¿Qué es?:** Runtimes para servir modelos locales.
+**** **¿Para qué sirve?:** Levantar servidores IA fácilmente.
+**** **Ejemplo:** Comando ollama run.
+**** **Uso en lab:** Herramientas de ejecución local.
+*** Servicios Cloud
+**** **¿Qué es?:** Infraestructura gestionada por terceros.
+**** **¿Para qué sirve?:** Escalar sin hardware propio.
+**** **Ejemplo:** Azure OpenAI.
+**** **Uso en lab:** Base del modelo cloud evaluado.
+@endmindmap

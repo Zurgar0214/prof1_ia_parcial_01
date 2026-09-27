@@ -1,0 +1,8 @@
+Escribe un script en Python que realice lo siguiente:
+1. Consuma la API pública de Open-Meteo para obtener las temperaturas de los últimos 7 días en Manizales (latitud 5.0689, longitud -75.5174):
+   URL: https://api.open-meteo.com/v1/forecast?latitude=5.0689&longitude=-75.5174&past_days=7&hourly=temperature_2m
+2. Valide que la respuesta HTTP sea 200 y que el JSON contenga las llaves 'hourly' y 'temperature_2m'. Si falla, lance una excepción.
+3. Cargue los datos en un DataFrame de Pandas, convierta las fechas a formato datetime y verifique si existen valores nulos.
+4. Calcule e imprima por consola: media, mediana, valor mínimo y valor máximo.
+5. Genere y guarde una gráfica de línea de la temperatura a lo largo del tiempo en un archivo llamado 'temperatura_manizales.png' usando Matplotlib.
+Usa tipado estático, manejo explícito de excepciones y añade comentarios técnicos.

@@ -1,0 +1,4 @@
+modelo,MAE,RMSE,MAPE_%
+Persistencia (baseline),21.33,28.06,0.615
+Regresión AR(5),22.3,28.75,0.645
+Media móvil 5 (baseline),35.88,45.19,1.039

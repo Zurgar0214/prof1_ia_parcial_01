@@ -1,0 +1,76 @@
+flowchart TB
+  subgraph F["1 · Fundamentos"]
+    direction LR
+    IA["Inteligencia Artificial"] -->|"incluye"| ML["Machine Learning"]
+    ML -->|"incluye"| DL["Deep Learning"]
+    DL -->|"se construye con"| RN["Redes neuronales"]
+    RN -->|"arquitectura clave"| TR["Transformers<br/>(atención)"]
+    TR -->|"escalado a gran volumen de datos"| FM["Modelos fundacionales"]
+  end
+
+  subgraph T["2 · Tipos de modelos"]
+    LLM["LLM"]
+    SLM["SLM"]
+    COD["Modelos de código"]
+    VLM["VLM / multimodal"]
+    EMB["Embeddings"]
+    VOZ["STT / TTS"]
+  end
+
+  FM -->|"se especializa en texto"| LLM
+  LLM -->|"menos parámetros / destilación"| SLM
+  LLM -->|"ajuste con repositorios de código"| COD
+  FM -->|"texto + imagen"| VLM
+  FM -->|"vectores semánticos"| EMB
+  FM -->|"audio ↔ texto"| VOZ
+
+  subgraph O["3 · Funcionamiento"]
+    ENT["Entrenamiento"] -->|"produce"| PAR["Parámetros (pesos)"]
+    PAR -->|"se usan en"| INF["Inferencia"]
+    TOK["Tokens"] -->|"limitados por"| CTX["Ventana de contexto"]
+    TEMP["Temperatura"] -->|"controla aleatoriedad de"| INF
+    CUA["Cuantización<br/>(ej. Q4_K_M)"] -->|"reduce memoria de"| PAR
+  end
+
+  LLM --> PAR
+  CTX --> INF
+
+  subgraph I["5 · Infraestructura"]
+    HW["CPU · GPU · RAM · VRAM"]
+    RT["Runtime local<br/>Ollama · LM Studio"]
+    CL["Servicios cloud"]
+  end
+
+  PAR -->|"tamaño determina"| HW
+  CUA -->|"permite caber en"| HW
+  HW -->|"ejecuta"| RT
+
+  subgraph U["4 · Formas de uso"]
+    OW["Open-weight"] -->|"se descarga y corre en"| LOC["Modelo local"]
+    PRO["Propietario"] -->|"solo disponible en"| CLO["Modelo cloud"]
+    API["API (HTTP/JSON)"]
+    CHAT["Interfaz de chat"]
+    APP["Aplicación Python"]
+  end
+
+  RT --> LOC
+  CL --> CLO
+  LOC -->|"expone localhost:11434 / :1234"| API
+  CLO -->|"expone endpoint remoto"| API
+  API -->|"consumida por"| APP
+  API -->|"consumida por"| CHAT
+
+  subgraph L["Uso en el laboratorio"]
+    C1["C1 · Cartografía"]
+    C2["C2 · Ollama + LM Studio"]
+    C3["C3 · Vibe Coding"]
+    C4["C4 · Serie temporal TRM"]
+  end
+
+  T -.-> C1
+  RT -.-> C2
+  APP -.-> C2
+  COD -.-> C3
+  CLO -.-> C3
+  ML -.->|"regresión autorregresiva"| C4
+  API -.->|"API pública de datos"| C4

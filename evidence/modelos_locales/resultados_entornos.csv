@@ -1,0 +1,10 @@
+﻿fecha,entorno,modelo,parametros,cuantizacion,prompt_id,segundos_total,segundos_carga,tokens_salida,tokens_por_s,memoria_modelo_gb,memoria_en_vram_gb
+2026-09-27T12:29:50,Ollama,llama3.1,8.0B,Q4_K_M,general,23.17,12.84,90,11.41,5.61,2.06
+2026-09-27T12:30:52,Ollama,llama3.1,8.0B,Q4_K_M,codigo_generar,57.49,0.01,541,9.82,5.61,2.06
+2026-09-27T12:31:48,Ollama,llama3.1,8.0B,Q4_K_M,codigo_explicar,52.16,0.01,471,9.46,5.61,2.06
+2026-09-27T12:32:15,Ollama,qwen2.5-coder:7b,7.6B,Q4_K_M,general,22.27,12.2,106,13.8,5.12,2.28
+2026-09-27T12:33:11,Ollama,qwen2.5-coder:7b,7.6B,Q4_K_M,codigo_generar,52.26,0.01,630,12.7,5.12,2.28
+2026-09-27T12:33:58,Ollama,qwen2.5-coder:7b,7.6B,Q4_K_M,codigo_explicar,42.88,0.01,521,12.97,5.12,2.28
+2026-09-27T12:34:15,LM Studio,qwen2.5-coder-7b-instruct,,(ver LM Studio),general,14.65,,115,7.85,(ver Administrador de tareas),
+2026-09-27T12:35:05,LM Studio,qwen2.5-coder-7b-instruct,,(ver LM Studio),codigo_generar,48.76,,578,11.85,(ver Administrador de tareas),
+2026-09-27T12:36:06,LM Studio,qwen2.5-coder-7b-instruct,,(ver LM Studio),codigo_explicar,58.27,,681,11.69,(ver Administrador de tareas),

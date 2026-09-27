@@ -1,0 +1,90 @@
+# Código generado por Qwen2.5-Coder 7B (Ollama, local código) SIN MODIFICACIONES (extraído de ../respuestaQwen2.5.txt).
+# Prompt: ../promptUtilizado.txt
+import requests
+import pandas as pd
+import matplotlib.pyplot as plt
+from datetime import datetime
+from typing import Dict, Any, Optional
+
+# Definimos una función para obtener los datos de la API
+def obtener_temperaturas(url: str) -> Dict[str, Any]:
+    response = requests.get(url)
+    
+    # Valida que la respuesta HTTP sea 200
+    if response.status_code != 200:
+        raise Exception(f"Error al obtener los datos. Código de estado: {response.status_code}")
+    
+    # Parseamos la respuesta como JSON
+    data = response.json()
+    
+    # Validamos que el JSON contenga las llaves 'hourly' y 'temperature_2m'
+    if 'hourly' not in data or 'temperature_2m' not in data['hourly']:
+        raise Exception("Los datos JSON no contienen las llaves esperadas")
+    
+    return data
+
+# Definimos una función para procesar los datos y crear un DataFrame
+def procesar_datos(data: Dict[str, Any]) -> pd.DataFrame:
+    # Convertimos las horas en timestampsUNIX a fechas legibles
+    fechas = pd.to_datetime(data['hourly']['time'], unit='s')
+    
+    # Creamos un DataFrame con las fechas y las temperaturas
+    df = pd.DataFrame({
+        'fecha': fechas,
+        'temperatura': data['hourly']['temperature_2m']
+    })
+    
+    # Verificamos si existen valores nulos
+    if df.isnull().values.any():
+        raise Exception("El DataFrame contiene valores nulos")
+    
+    return df
+
+# Definimos una función para calcular estadísticas
+def calcular_estadisticas(df: pd.DataFrame) -> None:
+    # Calculamos la media, mediana, valor mínimo y máximo
+    media = df['temperatura'].mean()
+    mediana = df['temperatura'].median()
+    minimo = df['temperatura'].min()
+    maximo = df['temperatura'].max()
+    
+    # Imprimimos las estadísticas por consola
+    print(f"Media: {media}")
+    print(f"Mediana: {mediana}")
+    print(f"Valor mínimo: {minimo}")
+    print(f"Valor máximo: {maximo}")
+
+# Definimos una función para crear una gráfica de línea
+def crear_grafica(df: pd.DataFrame, ruta_guardado: str) -> None:
+    # Creamos una gráfica de línea de la temperatura a lo largo del tiempo
+    plt.figure(figsize=(10, 5))
+    plt.plot(df['fecha'], df['temperatura'], label='Temperatura', marker='o')
+    plt.xlabel('Fecha')
+    plt.ylabel('Temperatura (°C)')
+    plt.title('Temperaturas en Manizales (últimos 7 días)')
+    plt.legend()
+    plt.grid(True)
+    
+    # Guardamos la gráfica en un archivo PNG
+    plt.savefig(ruta_guardado)
+    plt.close()
+
+# Definimos la URL de la API
+url = "https://api.open-meteo.com/v1/forecast?latitude=5.0689&longitude=-75.5174&past_days=7&hourly=temperature_2m"
+
+try:
+    # Obtenemos los datos de la API
+    datos = obtener_temperaturas(url)
+    
+    # Procesamos los datos y creamos un DataFrame
+    df = procesar_datos(datos)
+    
+    # Calculamos las estadísticas
+    calcular_estadisticas(df)
+    
+    # Creamos y guardamos la gráfica
+    crear_grafica(df, 'temperatura_manizales.png')
+    
+    print("Proceso completado con éxito.")
+except Exception as e:
+    print(f"Error: {e}")

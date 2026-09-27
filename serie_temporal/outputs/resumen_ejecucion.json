@@ -1,0 +1,87 @@
+{
+  "ejecutado_en": "2026-09-27T12:56:57",
+  "modo": "offline",
+  "api": {
+    "fuente": "Datos Abiertos Colombia - TRM (Superintendencia Financiera)",
+    "endpoint": "https://www.datos.gov.co/resource/32sa-8pi3.json",
+    "fecha_inicio": "2023-01-01",
+    "fecha_fin": "2026-09-27",
+    "paginas": 1,
+    "registros": 881,
+    "segundos": 1.02,
+    "consultado_en": "2026-09-27T12:45:36",
+    "uso_app_token": false
+  },
+  "parametros": {
+    "inicio": "2023-01-01",
+    "fin": "2026-09-27",
+    "test_size": 0.2,
+    "ventana": 5,
+    "rezagos": 5,
+    "horizonte": 10,
+    "offline": true
+  },
+  "calidad_datos": {
+    "registros_recibidos": 881,
+    "valores_no_numericos": 0,
+    "fechas_invalidas": 0,
+    "faltantes_eliminados": 0,
+    "duplicados_eliminados": 0,
+    "valores_no_positivos": 0,
+    "unidades": [
+      "COP"
+    ],
+    "estaba_ordenada": true,
+    "vigencias_invertidas": 0,
+    "huecos_vigencia": 0,
+    "traslapes_vigencia": 0,
+    "registros_finales": 881,
+    "fecha_min": "2023-01-04",
+    "fecha_max": "2026-09-26"
+  },
+  "entrenamiento": [
+    "2023-01-04",
+    "2025-12-25",
+    705
+  ],
+  "prueba": [
+    "2025-12-27",
+    "2026-09-26",
+    176
+  ],
+  "metricas": [
+    {
+      "modelo": "Persistencia (baseline)",
+      "MAE": 21.33,
+      "RMSE": 28.06,
+      "MAPE_%": 0.615
+    },
+    {
+      "modelo": "Regresión AR(5)",
+      "MAE": 22.3,
+      "RMSE": 28.75,
+      "MAPE_%": 0.645
+    },
+    {
+      "modelo": "Media móvil 5 (baseline)",
+      "MAE": 35.88,
+      "RMSE": 45.19,
+      "MAPE_%": 1.039
+    }
+  ],
+  "coeficientes_ar": {
+    "lag_1": 1.174259888784532,
+    "lag_2": -0.31348062682504835,
+    "lag_3": 0.10527307990712526,
+    "lag_4": 0.00110017006043997,
+    "lag_5": 0.02167010379797779,
+    "intercepto": 44.80253528506091
+  },
+  "entorno": {
+    "python": "3.13.5",
+    "sistema": "Windows-11-10.0.26200-SP0",
+    "pandas": "3.0.1",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  }
+}

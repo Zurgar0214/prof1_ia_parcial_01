@@ -1,0 +1,17 @@
+# Secretos
+.env
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Salidas regenerables de los scripts de Vibe Coding
+vibe_coding/soluciones/*.png
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
