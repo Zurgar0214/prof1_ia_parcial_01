@@ -5,6 +5,8 @@
 
 > *La IA aumenta al ingeniero: propone, acelera y explica; el estudiante conserva la responsabilidad de comprender, ejecutar, verificar y justificar el resultado.*
 
+**Repositorio:** <https://github.com/Zurgar0214/prof1_ia_parcial_01>
+
 Enunciado completo: [`docs/enunciado_laboratorio.md`](docs/enunciado_laboratorio.md)
 
 ## Mapa del repositorio
@@ -35,8 +37,8 @@ Enunciado completo: [`docs/enunciado_laboratorio.md`](docs/enunciado_laboratorio
 ## Instalación
 
 ```bash
-git clone <url-del-repositorio>
-cd <repositorio>
+git clone https://github.com/Zurgar0214/prof1_ia_parcial_01.git
+cd prof1_ia_parcial_01
 python -m venv .venv
 # Windows:   .venv\Scripts\activate
 # Linux/Mac: source .venv/bin/activate
